@@ -9,7 +9,12 @@
     "start": "node build/server/index.js",
     "client": "nodemon -w webpack.config.js -x webpack-dev-server -- --mode development --env.development",
     "server": "nodemon --use_strict app/server --exec babel-node",
-    "dev": "concurrently 'npm run server' 'npm run client'"
+    "dev": "concurrently 'npm run server' 'npm run client'",
+    "prettier:fix": "prettier --print-width 80 --single-quote --trailing-comma es5 --write index.js **/*.js",
+    "precommit": "lint-staged",
+    "lint": "eslint .",
+    "lint:fix": "eslint lib/ --fix",
+    "format": "npm run lint:fix && npm run prettier:fix"
   },
   "husky": {
     "hooks": {
