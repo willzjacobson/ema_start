@@ -1,0 +1,12 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FETCH_SOURCE_ERROR = exports.FETCH_SOURCE_SUCCESS = exports.FETCH_SOURCE = void 0;
+const FETCH_SOURCE = 'FETCH_SOURCE';
+exports.FETCH_SOURCE = FETCH_SOURCE;
+const FETCH_SOURCE_SUCCESS = 'FETCH_SOURCE_SUCCESS';
+exports.FETCH_SOURCE_SUCCESS = FETCH_SOURCE_SUCCESS;
+const FETCH_SOURCE_ERROR = 'FETCH_SOURCE_ERROR';
+exports.FETCH_SOURCE_ERROR = FETCH_SOURCE_ERROR;
