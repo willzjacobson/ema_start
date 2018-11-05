@@ -6,14 +6,14 @@
   "scripts": {
     "build-node": "babel app -d build --copy-files",
     "build-webpack": "webpack --mode production --env.production",
-    "start": "node build/server/index.js",
-    "client": "nodemon -w webpack.config.js -x webpack-dev-server -- --mode development --env.development",
+    "prod": "node build/server/index.js",
+    "client": "webpack-dev-server --mode development --env.development",
     "server": "nodemon --use_strict app/server --exec babel-node",
     "dev": "concurrently 'npm run server' 'npm run client'",
-    "prettier:fix": "prettier --print-width 80 --single-quote --trailing-comma es6 --write **/*.js",
+    "prettier:fix": "prettier --print-width 80 --single-quote --trailing-comma es5 --write '{app/**/*,*}.js'",
     "precommit": "lint-staged",
     "lint": "eslint .",
-    "lint:fix": "eslint app/ --fix",
+    "lint:fix": "eslint . --fix",
     "format": "npm run lint:fix && npm run prettier:fix"
   },
   "husky": {

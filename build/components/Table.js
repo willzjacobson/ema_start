@@ -1,21 +1,21 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireWildcard(require('react'));
 
-var _redux = require("redux");
+var _redux = require('redux');
 
-var _reactRedux = require("react-redux");
+var _reactRedux = require('react-redux');
 
-var _reactHtmlParser = _interopRequireDefault(require("react-html-parser"));
+var _reactHtmlParser = _interopRequireDefault(require('react-html-parser'));
 
-var _TableCell = _interopRequireDefault(require("./TableCell"));
+var _TableCell = _interopRequireDefault(require('./TableCell'));
 
-var sourceActions = _interopRequireWildcard(require("../actions/source"));
+var sourceActions = _interopRequireWildcard(require('../actions/source'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35,7 +35,7 @@ class Table extends _react.Component {
     const s = this.props.source;
     const rows = [];
     const firstRow = [];
-    firstRow.push(_react.default.createElement("th", null, "service"));
+    firstRow.push(_react.default.createElement('th', null, 'service'));
     const tableHeads = [(0, _reactHtmlParser.default)('<th>service</th>')];
     let firstRound = true;
 
@@ -51,22 +51,22 @@ class Table extends _react.Component {
           slot: slot,
           sourceData: s[service][slot]
         }));
-        if (firstRound) tableHeads.push(_react.default.createElement("th", {
+        if (firstRound) tableHeads.push(_react.default.createElement('th', {
           key: slot
         }, slot));
       }
 
-      rows.push(_react.default.createElement("tr", {
+      rows.push(_react.default.createElement('tr', {
         key: service
-      }, _react.default.createElement("td", null, service), cells));
+      }, _react.default.createElement('td', null, service), cells));
       firstRound = false;
     }
 
-    return _react.default.createElement("div", null, _react.default.createElement("table", {
-      className: "table table-hover"
-    }, _react.default.createElement("thead", null, _react.default.createElement("tr", {
+    return _react.default.createElement('div', null, _react.default.createElement('table', {
+      className: 'table table-hover'
+    }, _react.default.createElement('thead', null, _react.default.createElement('tr', {
       style: styles.titleStyle
-    }, tableHeads)), _react.default.createElement("tbody", null, rows)));
+    }, tableHeads)), _react.default.createElement('tbody', null, rows)));
   }
 
 }

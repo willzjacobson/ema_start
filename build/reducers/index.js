@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports.default = void 0;
 
-var _redux = require("redux");
+var _redux = require('redux');
 
-var _source = _interopRequireDefault(require("./source"));
+var _source = _interopRequireDefault(require('./source'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

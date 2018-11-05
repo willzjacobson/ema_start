@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports.beginFetchSource = beginFetchSource;
@@ -8,11 +8,11 @@ exports.fetchSourceSuccess = fetchSourceSuccess;
 exports.fetchSourceError = fetchSourceError;
 exports.fetchSource = fetchSource;
 
-var types = _interopRequireWildcard(require("./action-types"));
+var types = _interopRequireWildcard(require('./action-types'));
 
-var _axios = _interopRequireDefault(require("axios"));
+var _axios = _interopRequireDefault(require('axios'));
 
-var _config = require("../config");
+var _config = require('../config');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

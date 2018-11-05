@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireWildcard(require('react'));
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -78,11 +78,11 @@ class TableCell extends _react.Component {
     let display;
 
     if (error) {
-      return _react.default.createElement("td", null, _react.default.createElement("p", null, "error"));
+      return _react.default.createElement('td', null, _react.default.createElement('p', null, 'error'));
     }
 
     if (sourceData === null || !sourceData || !sourceData.properties) {
-      return _react.default.createElement("td", null, "...");
+      return _react.default.createElement('td', null, '...');
     }
 
     if (!sourceData.properties.branch) {
@@ -91,9 +91,9 @@ class TableCell extends _react.Component {
       display = sourceData.properties.branch;
     }
 
-    return _react.default.createElement("td", {
+    return _react.default.createElement('td', {
       style: styles.cellStyle
-    }, _react.default.createElement("button", {
+    }, _react.default.createElement('button', {
       style: this.setButtonStyle(sourceData),
       onClick: this.openModal
     }, display));

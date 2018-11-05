@@ -1,16 +1,16 @@
-"use strict";
+'use strict';
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireDefault(require('react'));
 
-var _reactDom = _interopRequireDefault(require("react-dom"));
+var _reactDom = _interopRequireDefault(require('react-dom'));
 
-var _reactRouterDom = require("react-router-dom");
+var _reactRouterDom = require('react-router-dom');
 
-var _reactRedux = require("react-redux");
+var _reactRedux = require('react-redux');
 
-var _store = _interopRequireDefault(require("../store"));
+var _store = _interopRequireDefault(require('../store'));
 
-var _App = _interopRequireDefault(require("../components/App"));
+var _App = _interopRequireDefault(require('../components/App'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

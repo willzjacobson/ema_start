@@ -1,21 +1,21 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireWildcard(require('react'));
 
-var _redux = require("redux");
+var _redux = require('redux');
 
-var _reactRedux = require("react-redux");
+var _reactRedux = require('react-redux');
 
-var _Header = _interopRequireDefault(require("./Header"));
+var _Header = _interopRequireDefault(require('./Header'));
 
-var _Table = _interopRequireDefault(require("./Table"));
+var _Table = _interopRequireDefault(require('./Table'));
 
-var sourceActions = _interopRequireWildcard(require("../actions/source"));
+var sourceActions = _interopRequireWildcard(require('../actions/source'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23,8 +23,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 class App extends _react.Component {
   render() {
-    return _react.default.createElement("div", {
-      className: "container"
+    return _react.default.createElement('div', {
+      className: 'container'
     }, _react.default.createElement(_Header.default, null), _react.default.createElement(_Table.default, null));
   }
 

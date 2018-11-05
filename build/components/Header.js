@@ -1,18 +1,18 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireDefault(require('react'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const Header = () => {
-  return _react.default.createElement("h1", {
+  return _react.default.createElement('h1', {
     style: styles.headerStyle
-  }, "Dazboard");
+  }, 'Dazboard');
 };
 
 const styles = {

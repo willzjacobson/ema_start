@@ -1,7 +1,7 @@
-import axios from 'axios';
-import Promise from 'bluebird';
+// import axios from 'axios';
+// import Promise from 'bluebird';
 
-import { ROUTE, PORT } from '../config';
+// import { ROUTE, PORT } from '../config';
 
 export async function loadAllTheThings() {
   return {

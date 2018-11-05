@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports.FETCH_SOURCE_ERROR = exports.FETCH_SOURCE_SUCCESS = exports.FETCH_SOURCE = void 0;

@@ -6,7 +6,7 @@ export function beginFetchSource(webapp, slot) {
   return {
     type: types.FETCH_SOURCE,
     webapp,
-    slot
+    slot,
   };
 }
 
@@ -15,7 +15,7 @@ export function fetchSourceSuccess(webapp, slot, data) {
     type: types.FETCH_SOURCE_SUCCESS,
     sourceData: data,
     service: webapp,
-    slot
+    slot,
   };
 }
 
@@ -33,9 +33,7 @@ export function fetchSource(webapp, slot) {
     dispatch(beginFetchSource());
 
     try {
-      const {
-        data
-      } = await axios.get(
+      const { data } = await axios.get(
         `${ROUTE}/webapp/${webapp}/slot/${slot}/source`
       );
       dispatch(fetchSourceSuccess(webapp, slot, data));

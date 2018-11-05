@@ -8,7 +8,6 @@ import Table from './Table';
 import * as sourceActions from '../actions/source';
 
 class App extends Component {
-
   render() {
     return (
       <div className="container">

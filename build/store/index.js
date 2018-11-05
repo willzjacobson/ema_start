@@ -1,21 +1,21 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
 exports.default = configureStore;
 
-var _redux = require("redux");
+var _redux = require('redux');
 
-var _reduxThunk = _interopRequireDefault(require("redux-thunk"));
+var _reduxThunk = _interopRequireDefault(require('redux-thunk'));
 
-var _reduxLogger = _interopRequireDefault(require("redux-logger"));
+var _reduxLogger = _interopRequireDefault(require('redux-logger'));
 
-var _reduxImmutableStateInvariant = _interopRequireDefault(require("redux-immutable-state-invariant"));
+var _reduxImmutableStateInvariant = _interopRequireDefault(require('redux-immutable-state-invariant'));
 
-var _config = require("../config");
+var _config = require('../config');
 
-var _reducers = _interopRequireDefault(require("../reducers"));
+var _reducers = _interopRequireDefault(require('../reducers'));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
