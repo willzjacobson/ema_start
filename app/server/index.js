@@ -9,7 +9,7 @@ import routes from './routes';
 
 // Allow cross-domain requests
 app.use(cors());
-
+console.log('moose');
 // Serve bundles as static files
 const webpackOutputDir = join(__dirname, '../../dist');
 app.use(express.static(webpackOutputDir));
