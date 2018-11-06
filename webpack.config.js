@@ -29,28 +29,27 @@ module.exports = env => {
             options: {
               presets: [
                 '@babel/preset-react', // necessary transpilation react & JSX
-                ['@babel/preset-env', {
-                  debug: false, // limit console output
-                  // Only perform necessary transpilation for browsers that have >5% market share,
-                  // intentionally leaving out Internet Explorer 11 (which requires everything)
-                  targets: {
-                    browsers: ['> 5%', 'not ie 11']
+                [
+                  '@babel/preset-env',
+                  {
+                    debug: false, // limit console output
+                    // Only perform necessary transpilation for browsers that have >5% market share,
+                    // intentionally leaving out Internet Explorer 11 (which requires everything)
+                    targets: {
+                      browsers: ['> 5%', 'not ie 11'],
+                    },
+                    // Only apply the babel plugins needed to tanspile JS features that are used in the code
+                    useBuiltIns: 'usage',
                   },
-                  // Only apply the babel plugins needed to tanspile JS features that are used in the code
-                  useBuiltIns: 'usage',
-                }]
+                ],
               ],
-            }
+            },
           },
         },
         {
           test: /\.ejs$/,
-          loader: 'ejs-loader',
-          query: {
-            interpolate : /\{\{(.+?)\}\}/g,
-            evaluate    : /\[\[(.+?)\]\]/g
-          }
-        }
+          use: 'raw-loader',
+        },
       ],
     },
     plugins: [
@@ -58,18 +57,18 @@ module.exports = env => {
       new HtmlWebpackPlugin({
         template: './app/views/index.ejs',
         filename: 'index.ejs',
-        // minify: {
-        //   removeComments: true,
-        //   collapseWhitespace: true,
-        //   conservativeCollapse: true
-        // }
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+          conservativeCollapse: true,
+        },
       }),
     ],
     // OPTIMIZATION: We are splitting the code into 2 bundles
     // 1) a 'main' bundle consisting of our source code
     // 2) a 'vendor' bundle consisting of our dependencies
     // This makes use of client-side caching:
-    // If we push an update to our source code changes but dependencies do not change, 
+    // If we push an update to our source code changes but dependencies do not change,
     // only the 'main' (smaller) bundle must be re-fetched by the browser
     optimization: {
       // Tells webpack to extract a 'vendor' bundle of dependencies
@@ -78,24 +77,15 @@ module.exports = env => {
       },
       // Creates a 'manifest' file to keep track of which bundle should be updated
       runtimeChunk: {
-        name: "manifest",
+        name: 'manifest',
       },
     },
   };
-  
-  // If this is a development build, include webpack-dev-server configuration
-  // and other plugins useful for debugging
+
+  // If this is a development build, include plugins useful for debugging
   // (these use resources and increase the bundle size)
   if (env.development) {
     const devConfig = {
-      devServer: {
-        port: 3000, // Serve the client app on port 3000
-        // The NodeJS server is listening on port 8080.
-        // Tell the dev server to route any requests to /api through that port
-        proxy: {
-          '/': 'http://localhost:8080',
-        },
-      },
       plugins: [
         // When webpack has trouble buidling a module into the bundle,
         // Show the readable filename of the module in the logs
@@ -105,7 +95,6 @@ module.exports = env => {
 
     // Webpack Merge is a simple module to make building the config object easier
     return merge(baseConfig, devConfig);
-  
   } else {
     // Production build; just use the baseConfig
     return baseConfig;
