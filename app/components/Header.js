@@ -6,10 +6,10 @@ const Header = () => {
 
 const styles = {
   headerStyle: {
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: '32px'
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: '32px'
   }
-}
+};
 
 export default Header;
