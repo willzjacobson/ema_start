@@ -9,7 +9,7 @@ const outputDirectory = 'dist';
 module.exports = env => {
   // These config options are used whether this is a development or production build
   const baseConfig = {
-    entry: './app/renderers/dom.js',
+    entry: './app/renderers/dom.tsx',
     output: {
       // Absolute directory path where bundled content is placed
       path: path.join(__dirname, outputDirectory),
@@ -19,7 +19,7 @@ module.exports = env => {
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.tsx?$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
@@ -29,6 +29,7 @@ module.exports = env => {
             options: {
               presets: [
                 '@babel/preset-react', // necessary transpilation react & JSX
+                '@babel/typescript', // transpile typescript
                 [
                   '@babel/preset-env',
                   {
@@ -45,6 +46,12 @@ module.exports = env => {
               ],
             },
           },
+        },
+        {
+          // So we can debug our output code in typescript form
+          test: /\.js$/,
+          use: ['source-map-loader'],
+          enforce: 'pre',
         },
       ],
     },
@@ -84,7 +91,7 @@ module.exports = env => {
         proxy: {
           '/api': 'http://localhost:8080',
         },
-        open: true, // automatically open browser window (feel free to comment out)
+        //open: true, // automatically open browser window (feel free to comment out)
       },
       plugins: [
         // When webpack has trouble buidling a module into the bundle,
