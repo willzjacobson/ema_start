@@ -43,17 +43,31 @@ module.exports = env => {
             }
           },
         },
+        {
+          test: /\.ejs$/,
+          loader: 'ejs-loader',
+          query: {
+            interpolate : /\{\{(.+?)\}\}/g,
+            evaluate    : /\[\[(.+?)\]\]/g
+          }
+        }
       ],
     },
     plugins: [
       new CleanWebpackPlugin([outputDirectory]),
       new HtmlWebpackPlugin({
-        template: './app/views/index.html',
+        template: './app/views/index.ejs',
+        filename: 'index.ejs',
+        // minify: {
+        //   removeComments: true,
+        //   collapseWhitespace: true,
+        //   conservativeCollapse: true
+        // }
       }),
     ],
     // OPTIMIZATION: We are splitting the code into 2 bundles
-      // 1) a 'main' bundle consisting of our source code
-      // 2) a 'vendor' bundle consisting of our dependencies
+    // 1) a 'main' bundle consisting of our source code
+    // 2) a 'vendor' bundle consisting of our dependencies
     // This makes use of client-side caching:
     // If we push an update to our source code changes but dependencies do not change, 
     // only the 'main' (smaller) bundle must be re-fetched by the browser
@@ -79,9 +93,8 @@ module.exports = env => {
         // The NodeJS server is listening on port 8080.
         // Tell the dev server to route any requests to /api through that port
         proxy: {
-          '/api': 'http://localhost:8080',
+          '/': 'http://localhost:8080',
         },
-        open: true, // automatically open browser window (feel free to comment out)
       },
       plugins: [
         // When webpack has trouble buidling a module into the bundle,

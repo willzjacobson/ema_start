@@ -1,19 +1,19 @@
 {
   "name": "dazureui",
   "version": "1.0.0",
-  "main": "lib/index.js",
+  "main": "app/index.js",
   "license": "MIT",
   "scripts": {
     "build-node": "babel app -d build --copy-files",
     "build-webpack": "webpack --mode production --env.production",
     "start": "node build/server/index.js",
-    "client": "nodemon -w webpack.config.js -x webpack-dev-server -- --mode development --env.development",
+    "client": "webpack -w --mode development --env.development",
     "server": "nodemon --use_strict app/server --exec babel-node",
     "dev": "concurrently 'npm run server' 'npm run client'",
     "prettier:fix": "prettier --print-width 80 --single-quote --trailing-comma es5 --write index.js **/*.js",
     "precommit": "lint-staged",
     "lint": "eslint .",
-    "lint:fix": "eslint lib/ --fix",
+    "lint:fix": "eslint app/ --fix",
     "format": "npm run lint:fix && npm run prettier:fix"
   },
   "husky": {
@@ -41,6 +41,8 @@
     "body-parser": "1.18.3",
     "clean-webpack-plugin": "0.1.19",
     "cors": "2.8.4",
+    "ejs": "^2.6.1",
+    "ejs-loader": "^0.3.1",
     "eslint": "5.7.0",
     "eslint-plugin-react": "7.11.1",
     "express": "4.16.4",

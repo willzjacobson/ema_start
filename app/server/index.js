@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: 1 */
 
 import cors from 'cors';
-import path from 'path';
+import {join} from 'path';
 import express from 'express';
 
 const app = express();
@@ -11,14 +11,18 @@ const { PORT } = require('../config');
 // Allow cross-domain requests
 app.use(cors());
 
-// Serve files from public directory
-// app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, '../../dist')));
+// Use EJS as temnplating engine
+// Useful for rendering React code on the server
+app.set('view engine', 'ejs');
 
-// app.get('/', (req, res) => {
-//   console.log('HEY',path.join(__dirname,'../dist/index.html'))
-//   res.sendFile(path.join(__dirname,'../dist/index.html'));
-// })
+const webpackOutputDir = join(__dirname, '../../dist');
+
+app.get('/', (req, res) => {
+  res.render(join(webpackOutputDir, 'index.ejs'), {moose: 'MOOOSEE'});
+});
+
+// Serve bundles as static files
+app.use(express.static(webpackOutputDir));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
